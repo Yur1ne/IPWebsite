@@ -174,16 +174,16 @@ nav ul li .profile-button:hover {
     transition: color 0.3s ease;
 }
 
-/* Hero Section (No Changes - Using as reference) */
+/* Hero Section */
 .hero-section {
     position: relative;
     background-size: cover;
-    height: 100vh; /* Ensure it takes full viewport height */
+    height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column; /* Changed from row to column initially */
     z-index: 3;
 }
 
@@ -199,15 +199,39 @@ nav ul li .profile-button:hover {
     transform: translateZ(0);
 }
 
+/* New wrapper for logo and text */
+.hero-content-wrapper {
+    display: flex; /* Use flexbox to arrange logo and text horizontally */
+    align-items: center; /* Vertically align logo and text */
+    justify-content: flex-start; /* Align content to the start (left) */
+    position: relative; /* For z-index and positioning context if needed */
+    z-index: 2; /* Ensure it's above parallax background */
+    width: 80%; /* Control width of content wrapper */
+    max-width: 1200px; /* Maximum width if needed */
+}
+
+/* Logo Styling */
+.hero-logo {
+    margin-right: 30px; /* Spacing between logo and text */
+    max-width: 400px; /* Adjust as needed for your logo size */
+    height: auto; /* Maintain logo aspect ratio */
+}
+
+.hero-logo img {
+    display: block; /* Remove extra space below image */
+    width: 100%; /* Make logo responsive within its container */
+    height: auto;
+}
+
+
 .hero-text {
     color: #E89F71;
     text-align: left;
-    z-index: 2;
-    position: relative;
+    position: relative; /* For z-index and positioning context if needed */
     padding: 20px;
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    margin-left: 30%;
+    /* margin-left: 30%;  Removed - layout now controlled by flexbox on wrapper */
 }
 
 .hero-text h1 {
@@ -416,6 +440,7 @@ section {
 }
 
 #features ul {
+    list-style-type: none;
     gap: 30px; /* Adjusted gap for tighter layout */
     padding: 20px; /* Slightly reduced padding */
     max-width: 1200px;
@@ -426,6 +451,7 @@ section {
 }
 
 #features li {
+    list-style-type: none;
     padding: 40px 25px; /* Adjusted padding */
     background: linear-gradient(135deg, var(--background-light), #f0f0f0); /* Subtle gradient background like Navbar */
     border-radius: 15px; /* Rounded corners like Hero text box */
@@ -589,6 +615,13 @@ section {
 .testimonials-container {
     overflow: hidden;
     margin: 0 auto;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.testimonials-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
 }
 
 .testimonials-track {
@@ -742,7 +775,7 @@ section {
 
 /* Enhanced Footer (Restyled to match Hero & Navbar) */
 footer {
-    padding: 80px 20px 60px;
+    padding: 50px 20px 60px;
     background: linear-gradient(135deg, var(--primary-pastel), var(--primary-dark)); /* Gradient like Navbar but darker */
     position: relative;
     overflow: hidden;

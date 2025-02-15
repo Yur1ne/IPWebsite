@@ -149,3 +149,25 @@ document.addEventListener('DOMContentLoaded', () => {
         parallaxFactor: 0.2  // Experiment with this value
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const testimonialsContainer = document.querySelector('.testimonials-container');
+    const testimonialsTrack = document.querySelector('.testimonials-track');
+    const scrollLeftBtn = document.querySelector('.scroll-btn.left');
+    const scrollRightBtn = document.querySelector('.scroll-btn.right');
+    const testimonialCardWidth = document.querySelector('.testimonial-card').offsetWidth; // Get width of a single card
+
+    scrollLeftBtn.addEventListener('click', () => {
+        testimonialsContainer.scrollBy({
+            left: -testimonialCardWidth, // Scroll left by one card width
+            behavior: 'smooth' // Add smooth scrolling effect
+        });
+    });
+
+    scrollRightBtn.addEventListener('click', () => {
+        testimonialsContainer.scrollBy({
+            left: testimonialCardWidth, // Scroll right by one card width
+            behavior: 'smooth' // Add smooth scrolling effect
+        });
+    });
+});
